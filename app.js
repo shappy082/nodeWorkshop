@@ -109,11 +109,15 @@ const interceptor = function (req, res, next) {
     console.log(`method: ${req.method}`);
     next();
 }
+
 var catRoute = require('./cat/catRoute')
 var dogRoute = require('./dog/dogRoute')
+var userRoute = require('./userRoute')
 
+app.use(express.static('./public/'))
 app.use(interceptor)
 app.use('/dog', dogRoute)
 app.use('/cat', catRoute)
+app.use('/user', userRoute)
 
 app.listen(3000)

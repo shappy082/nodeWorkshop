@@ -9,4 +9,8 @@ router.get('/second', function (req, res) {
     res.send('second on user')
 })
 
+router.get('/', function (req, res) {
+    res.send(req.query)
+})
+
 module.exports = router
